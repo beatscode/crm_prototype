@@ -1,0 +1,19 @@
+<h1>Create new product</h1>
+
+<%= form_for(@product, :method => "post", :url => {:action => "create"}) do |f| %>
+	<p>
+		<%=f.label :name%>
+		<%=f.text_field :name%>
+	</p>
+	<p>
+		<%=f.label :product_type%>
+		<%=f.text_field :product_type%>
+	</p>
+	<p>
+		<%=f.label :price%>
+		<%=f.text_field :price%>
+	</p>
+	<p>
+		<%=f.submit "Submit"%>
+	</p>
+<% end %>

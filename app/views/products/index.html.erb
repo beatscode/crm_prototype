@@ -1,0 +1,19 @@
+<h1>Leonardo Product Manager</h1>
+
+
+<h3> Products (<%= @products.count %>) </h3>
+
+<table border="1">
+	<tr>
+		<td> Name </td>
+		<td> Price </td>
+	</tr>
+<% @products.each do | product | %>
+	<tr>
+
+	<td><%= product.name %> </td> 
+	<td>$<%= product.price %> </td>
+	</tr>
+<% end %>
+</table>
+
