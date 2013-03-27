@@ -1,19 +1,20 @@
-<h1>Leonardo Product Manager</h1>
-
-
-<h3> Products (<%= @products.count %>) </h3>
-
+<h1>Products</h1>
+<h1 class="subheader">All Products (<%= @products.count %>)</h1>
+<%=link_to "New +", new_product_path %>
+<br><br>
 <table border="1">
+	<thead>
+		<tr>
+			<th>Name</td>
+			<th>Price</td>
+			<th>Edit</td>
+		</tr>
+	</thead>
+	<% @products.each do | product | %>
 	<tr>
-		<td> Name </td>
-		<td> Price </td>
+		<td><%= product.name %></td>
+		<td>$<%= product.price %></td>
+		<td><%= link_to "Edit", edit_product_path(product) %></td>
 	</tr>
-<% @products.each do | product | %>
-	<tr>
-
-	<td><%= product.name %> </td> 
-	<td>$<%= product.price %> </td>
-	</tr>
-<% end %>
+	<% end %>
 </table>
-

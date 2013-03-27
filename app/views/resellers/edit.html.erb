@@ -1,0 +1,27 @@
+
+<h1>Editing Reseller <%= @reseller.name %></h1>
+
+<%= simple_form_for(@reseller, :url => {:action => 'update'}) do |f| %>
+
+	<%=f.hidden_field :id %>
+
+	<%=f.input :name %><br>
+
+	<%=f.input :address %><br>
+
+	<%=f.input :website %><br>
+
+	<%=f.input :appDomain %><br>
+
+	<%=f.input :marketing_type %><br>
+
+	<%=f.input :bundlename %><br>
+
+	<%=f.input :entity_type %><br>
+
+	<%=f.input :checkout_type %><br>
+
+	<%=f.button :submit %>
+
+<% end %>
+

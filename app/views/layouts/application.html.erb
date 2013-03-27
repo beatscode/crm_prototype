@@ -7,8 +7,100 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to "New Product", products_new_path %>
-<%= yield %>
+<nav class="top-bar">
+    <ul class="title-area">
+      <!-- Title Area -->
+      <li class="name">
+        <h1>
+          <%= link_to "Leonardo Administration", root_path %>
+        </h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+    </ul>
 
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li class="divider"></li>
+        <li class="has-dropdown">
+         <%= link_to "Resellers", resellers_path %>
+          <ul class="dropdown">
+            <li><label>Resellers</label></li>
+            <li><%=link_to "Resellers", resellers_path %></li>
+            <li><%= link_to "New Reseller", new_reseller_path %></li>
+            <li class="divider"></li>
+            <li><label>Coupons</label></li>
+            <li><%=link_to "Coupons", coupons_path %></li>
+            <li><%=link_to "New Coupon", new_coupon_path %></li>
+          </ul>
+        </li>
+        <li class="divider"></li>
+        <li class="has-dropdown">
+          <a href="#">Products</a>
+          <ul class="dropdown">
+          	<li><%= link_to "Products", products_path %></li>
+            <li><%= link_to "New Product", new_product_path %></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  </nav>
+
+  <!-- End Top Bar -->
+
+
+  <!-- Main Page Content and Sidebar -->
+
+  <div class="row">
+
+    <!-- Contact Details -->
+    <div class="large-9 columns">
+		<%= yield %>
+    </div>
+
+    <!-- End Contact Details -->
+
+
+    <!-- Sidebar -->
+
+
+    <div class="large-3 columns">
+		<h4>Leonardo Metrics</h4>
+		<ul class="side-nav">
+			<li><%=Reseller.count%> Resellers</li>
+			<li class="divider"></li>
+			<li><%=Product.count%> Products</li>
+		</ul>
+    </div>
+    <!-- End Sidebar -->
+  </div>
+
+  <!-- End Main Content and Sidebar -->
+  <!-- Footer -->
+
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-6 columns">
+          <p>&copy; Copyright  MedNet Dev Team</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="http://mednet">Intranet</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- End Footer -->
+
+  <script>
+    $(document).foundation();
+  </script>
+  <script>
+      $(document).foundation().foundation('joyride', 'start');
+    </script>
 </body>
 </html>

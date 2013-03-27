@@ -1,0 +1,21 @@
+<h1>Coupons</h1>
+<h1 class="subheader">All coupons (<%=Coupon.count%>)</h1>
+<table>
+  <thead>
+    <tr>
+      <th width="200">Name</th>
+      <th>Website</th>
+      <th width="150">Marketing Type</th>
+      <th width="150">Checkout Type</th>
+    </tr>
+  </thead>
+   <tbody>
+		<% @coupons.each do |r| %>
+		 <tr>
+			<td><%=link_to r.name, edit_coupon_path(r), :title => r.name %></td>
+			<td><%=r.discount%></td>
+			<td><%=r.start_date + " " + r.end_date %></td>
+		 </tr>
+		<% end %>
+	</tbody>
+</table>

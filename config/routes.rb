@@ -1,9 +1,10 @@
 Leoadmin::Application.routes.draw do
 
-  match 'products' => 'products#index'
-  match 'products/new' => 'products#new'
-  match 'products/create' => 'products#create'
+  resources :products
+  resources :resellers
+  resources :coupons
 
+  root to: 'resellers#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
