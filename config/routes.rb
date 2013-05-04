@@ -1,8 +1,17 @@
 Leoadmin::Application.routes.draw do
 
+  get "users/index"
+
+  get "users/edit"
+
+  get "users/show"
+
+  get "users/create"
+
   resources :products
   resources :resellers
   resources :coupons
+  resources :users
 
   root to: 'resellers#index'
 

@@ -11,7 +11,7 @@
    <tbody>
 		<% @resellers.each do |r| %>
 		 <tr>
-			<td><%=link_to image_tag( r.logo_url ), edit_reseller_path(r), :title => r.name %></td>
+			<td><%= link_to r.name, r %></td>
 			<td><%=link_to "Website", r.website , :target => "_blank" %></td>
 			<td><%=r.marketing_type%></td>
 			<td><%=r.checkout_type%></td>

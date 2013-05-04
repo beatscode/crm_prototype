@@ -1,0 +1,15 @@
+<div class="row panel">
+    <ul class="breadcrumbs">
+  <li><%= link_to "Resellers", resellers_path %></li>
+  <li class=""><%=link_to @user.reseller.name, reseller_path(@user.reseller) %></a></li>
+  <li class="current"><a href="#"><%= @user.login.nil? ? "Unregisterred": @user.login %></a></li>
+</ul>
+</div>
+<h1><%= @user.login.nil? ? "This User has not registerred yet" : @user.login %></h1>
+<h5 class="subheader">Started at <%=@user.created_at %></h5>
+<ul>
+    <li>Has 10 pages</li>
+    <li>Will Be Removed from system in </li>
+</ul>
+
+
