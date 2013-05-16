@@ -62,9 +62,62 @@
 
 
   <section>
-    <p class="title" data-section-title><a href="#panel2">Billing</a></p>
+    <p class="title" data-section-title><a href="#panel2">Invoices (<%=  @invoices.count%>)</a></p>
     <div class="content" data-section-content>
-      <p>Content of section 2.</p>
+
+      <br/>
+
+       <table width="90%">
+          <tr>
+            <thead>
+            <td> Invoice Id </td>
+            <td> Site id </td>
+            <td> Note </td>
+            <td> Total </td>
+            <td> Status </td>
+            <td> View Details </td>
+          </thead>
+          </tr>
+
+      <% @invoices.each do |i| %>
+
+       <% if i["invoice_status"] == 1
+          status = "Paid"
+        else
+          status = "Unpaid"
+        end %>
+
+      <tr>
+        <td><%= i["id"] %></td>
+        <td><%= i["site_id"] %></td>
+        <td><%= i["invoice_note"] %></td>
+        <td><%= i["total"] %></td>
+        <td><%= status %></td>
+        <td><%= i["id"] %></td>
+      </tr> 
+      <% end %>
+    </table>
+
+
+      
+    </div>
+  </section>
+
+    <section>
+    <p class="title" data-section-title><a href="#panel3">Billing</a></p>
+    <div class="content" data-section-content>
+      Billing
+       <table width="90%">
+          <tr>
+            <thead>
+            <td> Site id </td>
+            <td> Note </td>
+            <td> Total </td>
+            <td> Status </td>
+          </thead>
+          </tr>
+
+    </table>
     </div>
   </section>
 

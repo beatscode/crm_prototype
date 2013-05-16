@@ -25,6 +25,18 @@ class ResellersController < ApplicationController
 		@reseller = Reseller.find(params[:id])
 		@usercount= @reseller.users.count
 		@users    = @reseller.users
+		@invoices =  Invoice.includes(:invoicedetail).where("invoices.id  = invoice_details.invoice_id").all
+		
+		@invoices = ActiveRecord::Base.connection.select_all( "
+		SELECT invoices.* 
+		FROM users
+		INNER JOIN user_sites
+		ON users.id = user_sites.user_id
+		INNER JOIN invoices
+		on user_sites.site_id = invoices.site_id
+		INNER JOIN reseller
+		ON users.reseller_id = reseller.id
+		WHERE reseller.id = #{params[:id]}" )
 
 		respond_to do |format|
 			format.html # show.html.erb
