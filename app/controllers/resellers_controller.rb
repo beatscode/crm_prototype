@@ -21,4 +21,16 @@ class ResellersController < ApplicationController
 		@reseller.update_attributes(params[:reseller])
 	end
 
+	def show
+		@reseller = Reseller.find(params[:id])
+		@usercount= @reseller.users.count
+		@users    = @reseller.users
+
+		respond_to do |format|
+			format.html # show.html.erb
+			format.xml { render :xml => @reseller}
+			format.json { render :json => @reseller}
+		end
+	end
+
 end
