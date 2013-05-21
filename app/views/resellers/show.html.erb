@@ -33,7 +33,7 @@
 
 
   <section>
-    <p class="title" data-section-title><a href="#panel2">Users</a></p>
+    <p class="title" data-section-title><a href="#panel2">Users (<%=  @users.count%>)</a></p>
     <div class="content" data-section-content>
     <table>
       <thead>
@@ -61,7 +61,45 @@
   </section>
 
 
-  <section>
+
+    <section>
+    <p class="title" data-section-title><a href="#panel3">Sites (<%=  @sites.count%>)</a></p>
+    <div class="content" data-section-content>
+     
+       <table width="90%">
+          <tr>
+            <thead>
+            <td> Site id </td>
+            <td> Practice Name </td>
+            <td> Specialty </td>
+            <td> Checkout Status </td>
+            <td> Billing Status </td>
+          </thead>
+          </tr>
+
+      <% @sites.each do |site| 
+        if (site["has_purchased"] == 1)
+            checkout = "Has completed checkout"
+        else
+            checkout = "Has not completed checkout"
+        end
+      %>
+      
+      <tr>
+        <td><%= site["id"] %></td>
+        <td><%= site["practice_name"] == nil ? 'N/A' : site["practice_name"] %></td>
+        <td><%= site["specialty"] %></td>
+        <td><%= checkout %></td>
+        <td><%= site["site_standing"] == '' ? 'Editor' : site["site_standing"].capitalize %></td>
+      </tr> 
+    
+     <% end %>
+
+    </table>
+    </div>
+  </section>
+
+<section>
     <p class="title" data-section-title><a href="#panel2">Invoices (<%=  @invoices.count%>)</a></p>
     <div class="content" data-section-content>
 
@@ -93,7 +131,10 @@
         <td><%= i["invoice_note"] %></td>
         <td><%= i["total"] %></td>
         <td><%= status %></td>
-        <td><%= i["id"] %></td>
+        <td><%= link_to("View Details", invoice_path(
+        :invoice_id => i["id"], 
+        :reseller_id => @reseller.id
+        )) %></td>
       </tr> 
       <% end %>
     </table>
@@ -102,24 +143,5 @@
       
     </div>
   </section>
-
-    <section>
-    <p class="title" data-section-title><a href="#panel3">Billing</a></p>
-    <div class="content" data-section-content>
-      Billing
-       <table width="90%">
-          <tr>
-            <thead>
-            <td> Site id </td>
-            <td> Note </td>
-            <td> Total </td>
-            <td> Status </td>
-          </thead>
-          </tr>
-
-    </table>
-    </div>
-  </section>
-
 
 </div>

@@ -38,6 +38,19 @@ class ResellersController < ApplicationController
 		ON users.reseller_id = reseller.id
 		WHERE reseller.id = #{params[:id]}" )
 
+		@sites = ActiveRecord::Base.connection.select_all( "
+		SELECT sites.* 
+		FROM sites
+		INNER JOIN user_sites
+		ON sites.id = user_sites.site_id
+		INNER JOIN users
+		on user_sites.user_id = users.id
+		INNER JOIN reseller
+		ON users.reseller_id = reseller.id
+		WHERE reseller.id = #{params[:id]}" )
+
+		
+
 		respond_to do |format|
 			format.html # show.html.erb
 			format.xml { render :xml => @reseller}

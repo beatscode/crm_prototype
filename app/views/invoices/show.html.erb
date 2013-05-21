@@ -1,0 +1,60 @@
+<div class="row panel">
+  <ul class="breadcrumbs">
+    <li><%= link_to "Resellers", resellers_path %></li>
+    <li><%= link_to @reseller.name, resellers_path(@reseller.id) %></li>
+    <li class="unavailable"><a href="#"> Invoices </a> </li>
+  </ul>
+    
+    <div class="small-2 large-10 columns">
+     <h4>#<%= @reseller.id%> <%= @reseller.name %> - Invoice Details (Invoice Id: # <%= @invoice_id %> )</h4><br>
+     <p> <b>Site id:</b> <%= @invoice.site_id %></br>
+     <b>User Id:</b> <%= @invoice.user_id %></p> 
+    </div>
+ </div>
+
+<br/><br/>
+<div class="row">
+ <div class="large-10 columns">
+<table style="width:99%">
+  <thead>
+  <tr>
+   <th> Description </th>
+   <th> Quantity </th>
+   <th> Amount </th>
+  </tr>
+</thead>
+
+<% @details.each do | d | %>
+  <tr>
+  <td><%= d.description%> </td>
+  <td><%= d.quantity%> </td>
+  <td>$<%= d.cost%> </td>
+  </tr>
+<% end %>
+</table>
+</div>
+</div>
+
+<h5>Invoice Note: <%= @invoice.invoice_note %></h5><br/>
+
+<div class="row">
+  <div class="large-12 columns">
+  <div class="label">
+  <h5>Total: $<%= @invoice.total %></h5>
+  </div>
+
+  <% 
+  	if @invoice.invoice_status == 1
+  		status = "Paid"
+  		div_class = "success label"
+  	else
+  		status = "Unpaid"
+  		div_class = "alert label"
+  	end
+  %>
+
+  <div class="<%= div_class %>">
+  <h5>Status: <%= status %></h5>
+  </div>
+  </div>
+</div>
