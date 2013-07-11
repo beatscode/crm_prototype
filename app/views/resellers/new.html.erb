@@ -1,6 +1,13 @@
 <h1> New Reseller </h1>
 
 <%= form_for(@reseller, :method => "post", :url => {:action => "create"}) do |f| %>
+
+	<%= f.hidden_field :installed, :value => "0" %>
+	<%= f.hidden_field :marketing_type, :value => "whitelabel" %>
+	<%= f.hidden_field :logo, :value => "" %>
+	<%= f.hidden_field :theme, :value => "" %>
+	<%= f.hidden_field :bundle_type, :value => "traditional" %>
+
 	<p>
 		<%=f.label :name%>
 		<%=f.text_field :name%>
@@ -11,13 +18,48 @@
 	</p>
 
 	<p>
+		<%=f.label "Bundle Url"%>
+		<%=f.text_field :bundleurl%>
+	</p>
+
+	<p>
+		<%=f.label "Bundle Name"%>
+		<%=f.text_field :bundlename%>
+	</p>
+
+	<p>
+		<%=f.label "White Label Folder"%>
+		<%=f.text_field :wl_folder%>
+	</p>
+
+	<p>
+		<%=f.label "Product Name"%>
+		<%=f.text_field :product_name%>
+	</p>
+
+	<p>
 		<%=f.label :Domain%>
 		<%=f.text_field :website%>
 	</p>
 
 	<p>
-		<%=f.label "Marketing Type" %>
-		<%=f.text_field :marketing_type%>
+		<%=f.label "Address " %>
+		<%=f.text_field :address%>
+	</p>
+
+	<p>
+		<%=f.label "Entity Type" %>
+		<%=f.text_field :entity_type %>
+	</p>
+
+	<p>
+		<%=f.label "Checkout Type" %>
+		<%=f.text_field :checkout_type %>
+	</p>
+		
+	<p>
+		<%=f.label "1800 Phone Number" %>
+		<%=f.text_field :'1800number'%>
 	</p>
 
 	<p>

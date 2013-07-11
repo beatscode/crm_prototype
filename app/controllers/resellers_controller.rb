@@ -19,8 +19,15 @@ class ResellersController < ApplicationController
 
 	def create
 
-		@reseller = Reseller.new()
-	
+		reseller = Reseller.new()
+		reseller.installed = params[:reseller][:installed]
+		reseller.marketing_type = params[:reseller][:marketing_type]
+		reseller.logo = params[:reseller][:logo]
+		reseller.theme = params[:reseller][:theme]
+		reseller.bundle_type = params[:reseller][:bundle_type]
+		reseller.name = params[:reseller][:name]
+		reseller.save
+
 	 	 respond_to do |format|
       		format.html { redirect_to('/resellers') }
 		 end
