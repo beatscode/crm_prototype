@@ -1,0 +1,26 @@
+<h1> New Reseller </h1>
+
+<%= form_for(@reseller, :method => "post", :url => {:action => "create"}) do |f| %>
+	<p>
+		<%=f.label :name%>
+		<%=f.text_field :name%>
+	</p>
+	<p>
+		<%=f.label "Application Domain"%>
+		<%=f.text_field :appDomain%>
+	</p>
+
+	<p>
+		<%=f.label :Domain%>
+		<%=f.text_field :website%>
+	</p>
+
+	<p>
+		<%=f.label "Marketing Type" %>
+		<%=f.text_field :marketing_type%>
+	</p>
+
+	<p>
+		<%=f.submit "Create"%>
+	</p>
+<% end %>

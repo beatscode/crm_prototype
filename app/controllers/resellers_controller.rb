@@ -8,8 +8,22 @@ class ResellersController < ApplicationController
 		end
 	end
 
+	def new
+		@reseller = Reseller.new
+
+		respond_to do |format|
+			format.html { render :html => @reseller }
+      		format.json { render :json => @reseller }
+		end
+	end
+
 	def create
 
+		@reseller = Reseller.new()
+	
+	 	 respond_to do |format|
+      		format.html { redirect_to('/resellers') }
+		 end
 	end
 
 	def edit

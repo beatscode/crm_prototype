@@ -10,6 +10,8 @@ Leoadmin::Application.routes.draw do
 
   get "invoices/show"
 
+  match 'updateProduct' => 'products#updateProduct'
+
   resources :products
   resources :resellers
   resources :coupons
