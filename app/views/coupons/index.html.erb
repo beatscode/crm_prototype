@@ -1,20 +1,27 @@
-<h1>Coupons</h1>
-<h1 class="subheader">All coupons (<%=Coupon.count%>)</h1>
+<h4>Coupons</h4>
+<h4 class="subheader">All coupons (<%=Coupon.count%>)</h4>
 <table>
   <thead>
     <tr>
       <th width="200">Name</th>
-      <th>Website</th>
-      <th width="150">Marketing Type</th>
-      <th width="150">Checkout Type</th>
+      <th width="240">Discount %</th>
+      <th width="150">Description</th>
+      <th width="150">Starts</th>
+      <th width="150">Expires</th>
+      <th width="150">Status</th>
+      <th width="150">Edit</th>
     </tr>
   </thead>
    <tbody>
 		<% @coupons.each do |r| %>
 		 <tr>
-			<td><%=link_to r.name, edit_coupon_path(r), :title => r.name %></td>
+			<td><%= r.name %></td>
 			<td><%=r.discount%></td>
-			<td><%=r.start_date + " " + r.end_date %></td>
+      <td><%=r.description.to_s.capitalize %></td>
+			<td><%=r.start_date %></td>
+      <td><%=r.end_date %></td>
+      <td><%=r.status.to_s.capitalize %></td>
+      <td><%= link_to "Edit", edit_coupon_path(r),  :class => "button btn" %></td>
 		 </tr>
 		<% end %>
 	</tbody>

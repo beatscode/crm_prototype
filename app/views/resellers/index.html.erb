@@ -1,7 +1,6 @@
 <h4>All Resellers (<%=Reseller.count%>)</h4>
 
-
-<table width="700">
+<table width="800">
   <thead>
     <tr>
       <th width="200">Reseller Logo</th>
@@ -9,25 +8,26 @@
       <th>Website</th>
       <th width="150">Marketing Type</th>
       <th width="150">Checkout Type</th>
-      <th width="150">Edit</th>
+      <th width="150">Details</th>
     </tr>
   </thead>
    <tbody>
 		<% @resellers.each do |r| %>
 		 <tr>
 		 	<td><%= 
+
 		 		if r.logo_url === "nill" || r.logo_url === "#" || r.logo_url.to_s.length < 2
 		 			image_tag("http://www.wacom.com/~/media/WTC/Images/Products/notavailable_500x500.jpg?mw=210") 
 		 		else
-		 			
 		 			image_tag(r.logo_url) 
 		 		end
+
 		 	%></td>
 			<td><%= link_to r.name, r %></td>
 			<td><%=link_to "Website", r.website , :target => "_blank" %></td>
 			<td><%=r.marketing_type%></td>
 			<td><%=r.checkout_type%></td>
-			<td><%= link_to "Edit", r,  :class => "button btn" %></td>
+			<td><%= link_to "View", r,  :class => "button btn" %></td>
 		 </tr>
 		<% end %>
 	</tbody>

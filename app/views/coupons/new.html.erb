@@ -1,0 +1,38 @@
+<h4>New Coupon</h4>
+
+<%= form_for(@coupon, :method => "post", :url => {:action => "create"}) do |f| %>
+
+	<p>
+		<%=f.label :name%>
+		<%=f.text_field :name%>
+	</p>
+	
+	<p>
+		<%=f.label "Coupon Code"%>
+		<%=f.text_field :code%>
+	</p>
+
+	<p>
+		<%=f.label "Coupon Discount"%>
+		<%=f.text_field :discount%>
+	</p>
+
+	<p>
+		<%=f.label "Description"%>
+		<%=f.text_field :description%>
+	</p>
+
+	<p>
+		<%=f.label "Description"%>
+		<%=f.text_field :description%>
+	</p>
+
+	<p>
+		<%=f.label "Start Date"%>
+		<%=f.text_field :start_date, :class => "date" %>
+	</p>
+	
+	<p>
+		<%=f.submit "Create", :class => "button btn" %>
+	</p>
+<% end %>

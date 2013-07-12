@@ -24,18 +24,13 @@
 <br><br>
 <div class="section-container auto" data-section>
 
-  <section>
-    <p class="title" data-section-title><a href="#panel1">Status</a></p>
-    <div class="content" data-section-content>
-      <p>Content of section 1.</p>
-    </div>
-  </section>
+
 
 
   <section>
     <p class="title" data-section-title><a href="#panel2">Users (<%=  @users.count%>)</a></p>
     <div class="content" data-section-content>
-    <table>
+    <table width="99%">
       <thead>
         <tr>
           <th width="200">User Login</th>
@@ -52,7 +47,7 @@
                 <td><%= u.get_role %></td>
                 <td><%= link_to("Edit User", edit_user_path(u) , :target => "_blank" ) %></td>
                 <td><%= u.purchased.nil? ? "Not Purchased Yet" : "Purchased" %></td>
-                <td><%= u.created_at %></td>
+                <td><%= u.created_at.strftime("%m/%d/%Y")  %></td>
              </tr>
             <% end %>
         </tbody>
@@ -66,7 +61,7 @@
     <p class="title" data-section-title><a href="#panel3">Sites (<%=  @sites.count%>)</a></p>
     <div class="content" data-section-content>
      
-       <table width="90%">
+       <table width="99%">
           <tr>
             <thead>
             <td> Site id </td>
@@ -105,7 +100,7 @@
 
       <br/>
 
-       <table width="90%">
+       <table width="99%">
           <tr>
             <thead>
             <td> Invoice Id </td>
