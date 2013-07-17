@@ -69,6 +69,7 @@
             <td> Specialty </td>
             <td> Checkout Status </td>
             <td> Billing Status </td>
+            <td> View Details </td>
           </thead>
           </tr>
 
@@ -86,6 +87,7 @@
         <td><%= site["specialty"] %></td>
         <td><%= checkout %></td>
         <td><%= site["site_standing"] == '' ? 'Editor' : site["site_standing"].capitalize %></td>
+        <td><%= link_to("View Details", sites_show_path()) + site["id"] %></td>
       </tr> 
     
      <% end %>

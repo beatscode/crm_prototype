@@ -6,11 +6,17 @@ class SitesController < ApplicationController
     end
 
     def show
-        @site = Site.find(param[:id])
+        @site = Site.find(params[:id])
+        @site_id = params[:id]
+
+        sql = "SELECT * FROM pages WHERE site_id ='" + @site_id + "'"    
+        @pages = Site.connection.execute(sql)
+
+
+        @invoices = Invoice.where("site_id like 'params[:id]'")
+
         respond_to do |format|
             format.html # show.html.erb
-            format.xml { render :xml => @site}
-            format.json { render :json => @site}
         end
     end
 

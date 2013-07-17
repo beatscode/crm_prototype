@@ -1,2 +1,12 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="row panel">
+	<h4>Editing User <%= @user.login %></h4>
+
+
+<%= simple_form_for(@user, :url => {:action => 'update'}) do |f| %>
+
+	<%=f.hidden_field :id %>
+
+	<%=f.input :login %><br>
+	<%=f.button :submit %>
+<% end %>
+</div>

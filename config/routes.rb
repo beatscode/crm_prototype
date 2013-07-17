@@ -10,6 +10,7 @@ Leoadmin::Application.routes.draw do
 
   get "invoices/show"
 
+  match 'sites/show/(:id)' => 'sites#show'
   match 'updateProduct' => 'products#updateProduct'
 
   resources :products
@@ -17,6 +18,7 @@ Leoadmin::Application.routes.draw do
   resources :coupons
   resources :users
   resources :invoices
+  resources :sites
 
   root to: 'resellers#index'
 
