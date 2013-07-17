@@ -87,7 +87,7 @@
         <td><%= site["specialty"] %></td>
         <td><%= checkout %></td>
         <td><%= site["site_standing"] == '' ? 'Editor' : site["site_standing"].capitalize %></td>
-        <td><%= link_to("View Details", sites_show_path()) + site["id"] %></td>
+        <td> <a href="/sites/show/<%=site["id"] %>" class="btn button"> View </a></td>
       </tr> 
     
      <% end %>
