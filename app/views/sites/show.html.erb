@@ -1,20 +1,71 @@
 <div class="row panel">
     <ul class="breadcrumbs">
-		<h3> View Site Id:  <%= @site.id %></h3>	
+		<br/>
+		<h3> Site  <%= @site.id %></h3>	
+		<hr/>
+
+		<h6> Details </h6>
 		<p>Practice Name: <%= @site.practice_name %> <br/>
 		Specialty : <%= @site.specialty %> <br/>
 		Standing : <%= @site.site_standing %> <br/>
 		Created On : <%= @site.created_at.strftime("%m/%d/%Y") %> <br/>
 		Updated On : <%= @site.updated_at.strftime("%m/%d/%Y") %> <br/>
-		<p>Page Count: (<%= @pages.size %>) </p>
+
+		<h6> Page Count  (<%= @pages.size %>) </h6>
+		<% @pages.each do | d | %>
+		  <%= d.name%> <br/>
+		<% end %>
+		<br/>
 
 
-		<h2> Invoices (<%=@invoices.size %>) </h2>
+		<h6>  Doctors  (<%= @staff.size %>) </h6>
+		<table style="width:99%">
+		  <thead>
+		  <tr>
+		   <th> First Name </th>
+		   <th> Last Name </th>
+		   <th> Created on </th>
+		  </tr>
+		</thead>
+
+		<% @doctors.each do | d | %>
+		 <tr>
+		  <td><%= d.firstname%> </td>
+		  <td><%= d.lastname%> </td>
+		  <td><%= d.created_at%> </td>
+		 </tr>	
+		<% end %>
+		</table>
+		<br/>
+
+		<h6> Staff Count  (<%= @staff.size %>) </h6>
+		<table style="width:99%">
+		  <thead>
+		  <tr>
+		   <th> First Name </th>
+		   <th> Last Name </th>
+		   <th> Created on </th>
+		  </tr>
+		</thead>
+
+		<% @staff.each do | d | %>
+		 <tr>
+		  <td><%= d.firstname%> </td>
+		  <td><%= d.lastname%> </td>
+		  <td><%= d.created_at%> </td>
+		 </tr>	
+		<% end %>
+		</table>
+		<br/>
+
+
+
+		<h6> Invoices (<%=@invoices.size %>) </h6>
 		<table style="width:99%">
 		  <thead>
 		  <tr>
 		   <th> Description </th>
-		   <th> Amount </th>
+		   <th> Total </th>
 		   <th> Created on </th>
 		  </tr>
 		</thead>
@@ -22,8 +73,8 @@
 		<% @invoices.each do | d | %>
 		  <tr>
 		  <td><%= d.invoice_note%> </td>
-		  <td><%= d.quantity%> </td>
-		  <td>$<%= d.created_at%> </td>
+		  <td>$<%= d.total%> </td>
+		  <td><%= d.created_at%> </td>
 		  </tr>
 		<% end %>
 		</table>

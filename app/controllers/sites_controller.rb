@@ -10,10 +10,14 @@ class SitesController < ApplicationController
         @site_id = params[:id]
 
         sql = "SELECT * FROM pages WHERE site_id ='" + @site_id + "'"    
-        @pages = Site.connection.execute(sql)
+        @pages__ = Site.connection.execute(sql)
 
+        @pages = Page.where(:site_id => params[:id])
+        @invoices = Invoice.where(:site_id => params[:id])
+        @staff = Staff.where(:site_id => params[:id])
+        @doctors = Physician.where(:site_id => params[:id])
 
-        @invoices = Invoice.where("site_id like 'params[:id]'")
+        
 
         respond_to do |format|
             format.html # show.html.erb

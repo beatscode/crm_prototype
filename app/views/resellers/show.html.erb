@@ -4,19 +4,21 @@
   <li><%= link_to "Resellers", resellers_path %></li>
   <li class="unavailable"><a href="#"><%=@reseller.name %></a></li>
 </ul>
-    <div class="small-2 large-4 columns">
+    <div class="small-2 large-5 columns">
      <h4>#<%= @reseller.id%> <%= @reseller.name %></h4><br>
         <%= link_to "Edit Reseller", edit_reseller_path( @reseller ) %> | <%= link_to_unless(@reseller.website.nil?, "Website", @reseller.website ) %>
         <br>
         Marketing Type: <%= @reseller.marketing_type %>
         Since <%= @reseller.created_at %>
      </p>
-     <span class="label"><%= @usercount%> users</span>
+     <span class="label"><%= @usercount%> Users</span>
+     <span class="label"><%= @sites.count%> Sites</span>
+     <span class="label"><%= @invoices.count%> Invoices</span>
     </div>
 
   <div class="small-6 large-4 columns">
     <div class="panel callout">
-        <h5>Address</h5>
+        <h6>Address</h6>
         <p><%= @reseller.address %></p>
     </div>
   </div>
