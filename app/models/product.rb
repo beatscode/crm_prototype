@@ -4,4 +4,6 @@ class Product < ActiveRecord::Base
   set_table_name 'products'
   self.primary_key = 'id'
 
+  PRODUCT_TYPES = ["service", "product","addon"]
+
 end

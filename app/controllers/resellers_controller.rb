@@ -2,6 +2,7 @@ class ResellersController < ApplicationController
 
 	def index
 		@resellers = Reseller.all
+		@sites = Site.all
 		respond_to do |format|
 			format.html { render :html => @resellers }
       		format.json { render :json => @resellers }

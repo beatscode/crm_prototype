@@ -116,7 +116,7 @@
           </thead>
           </tr>
 
-      <% @invoices.each do |i| %>
+      <% @invoices.reverse.each do |i| %>
 
        <% if i["invoice_status"] == 1
           status = "Paid"
