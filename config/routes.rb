@@ -1,13 +1,9 @@
 Leoadmin::Application.routes.draw do
 
   get "users/index"
-
   get "users/edit"
-
   get "users/show"
-
   get "users/create"
-
   get "invoices/show"
 
   match 'sites/show/(:id)' => 'sites#show'

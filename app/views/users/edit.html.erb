@@ -1,12 +1,10 @@
-<div class="row panel">
-	<h4>Editing User <%= @user.login %></h4>
-
-
-<%= simple_form_for(@user, :url => {:action => 'update'}) do |f| %>
-
+<div class="row panel large-12">
+	<h6>Editing User <%= @user.login %></h6>
+	<br/>
+	<%= simple_form_for(@user, :url => {:action => 'update'}) do |f| %>
 	<%=f.hidden_field :id %>
-
 	<%=f.input :login %><br>
-	<%=f.button :submit %>
+	<%=f.button :submit, :class => "button small round" %>
 <% end %>
 </div>
+

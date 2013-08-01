@@ -1,23 +1,26 @@
 <div class="row panel">
-    <ul class="breadcrumbs">
-		<br/>
-		<h3> Site  <%= @site.id %></h3>	
-		<hr/>
+    
 
 		<h6> Details </h6>
-		<p>Practice Name: <%= @site.practice_name %> <br/>
+		<p>
+		 Site Id:  <%= @site.id %><br/>
+		Practice Name: <%= @site.practice_name %> <br/>
 		Specialty : <%= @site.specialty %> <br/>
 		Standing : <%= @site.site_standing %> <br/>
 		Created On : <%= @site.created_at.strftime("%m/%d/%Y") %> <br/>
 		Updated On : <%= @site.updated_at.strftime("%m/%d/%Y") %> <br/>
+		</div>	
 
+<br/>
+<div class="row panel">
 		<h6> Page Count  (<%= @pages.size %>) </h6>
 		<% @pages.each do | d | %>
 		  <%= d.name%> <br/>
 		<% end %>
 		<br/>
-
-
+</div>
+<br/>
+<div class="row panel">
 		<h6>  Doctors  (<%= @staff.size %>) </h6>
 		<table style="width:99%">
 		  <thead>
@@ -27,6 +30,7 @@
 		   <th> Created on </th>
 		  </tr>
 		</thead>
+
 
 		<% @doctors.each do | d | %>
 		 <tr>
@@ -58,8 +62,9 @@
 		</table>
 		<br/>
 
-
-
+</div>
+<br/>
+<div class="row panel">
 		<h6> Invoices (<%=@invoices.size %>) </h6>
 		<table style="width:99%">
 		  <thead>
@@ -78,7 +83,7 @@
 		  </tr>
 		<% end %>
 		</table>
-	</ul>
+	
 </div>
 
 

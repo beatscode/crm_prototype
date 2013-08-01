@@ -16,7 +16,7 @@
 	<tr>
 		<td><%= product.name %></td>
 		<td>$<%= number_with_precision(product.price, :precision => 2) %></td>
-		<td><%= link_to "Edit", edit_product_path(product) %></td>
+		<td><%= link_to "Edit", edit_product_path(product), :class => "button small round" %></td>
 	</tr>
 	<% end %>
 </table>

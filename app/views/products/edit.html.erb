@@ -1,9 +1,14 @@
-<h1>Edit Product</h1>
-<p><%= @product.name %></br/>
-<%= @product.description %><br/>
-$<%= number_with_precision(@product.price, :precision => 2) %></br/>
+<div class="row panel large-12">
+	<h6> Edit Product </h6>
+	<p>Name: <%= @product.name %></br/>
+	Description: <%= @product.description %><br/>
+	Product Type: <%= @product.product_type %><br/>
+	Price: $<%= number_with_precision(@product.price, :precision => 2) %>
+</div>
+<br/>
 
-<h1>Update Product Details</h1>
+<div class="row large-12">
+<h6>Update Product Details</h6>
 
 <%= form_for(@product, :method => "post", :url => {:action => "updateProduct", :controller => "products"}) do |f| %>
 
@@ -21,14 +26,17 @@ $<%= number_with_precision(@product.price, :precision => 2) %></br/>
 		<%=f.text_field :description%>
 	</p>
 	<p>
-		<%=f.label :product_type%>
-		<%=f.text_field :product_type%>
+
+	  <%=f.label :product_type%>
+		<%=f.select(:product_type, Product::PRODUCT_TYPES, :class => "button dropdown")%>
+	 
 	</p>
 	<p>
 		<%=f.label :price%>
 		<%=f.text_field :price%>
 	</p>
 	<p>
-		<%=f.submit "Update"%>
+		<%=f.submit "Update", :class => "button small round" %>
 	</p>
 <% end %>
+</div>

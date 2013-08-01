@@ -8,7 +8,7 @@
      <h4>#<%= @reseller.id%> <%= @reseller.name %></h4><br>
         <%= link_to "Edit Reseller", edit_reseller_path( @reseller ) %> | <%= link_to_unless(@reseller.website.nil?, "Website", @reseller.website ) %>
         <br>
-        Marketing Type: <%= @reseller.marketing_type %>
+        Marketing Type: <%= @reseller.marketing_type %> <br/>
         Since <%= @reseller.created_at %>
      </p>
      <span class="label"><%= @usercount%> Users</span>
@@ -26,9 +26,6 @@
 <br><br>
 <div class="section-container auto" data-section>
 
-
-
-
   <section>
     <p class="title" data-section-title><a href="#panel2">Users (<%=  @users.count%>)</a></p>
     <div class="content" data-section-content>
@@ -37,9 +34,9 @@
         <tr>
           <th width="200">User Login</th>
           <th>Role</th>
-          <th>Edit</th>
           <th>Purchase Status</th>
           <th>Member Since</th>
+          <th>Edit</th>
         </tr>
       </thead>
        <tbody>
@@ -47,9 +44,10 @@
              <tr>
                 <td><%= link_to((u.login.nil? ? "No Login" : u.login), u) %></td>
                 <td><%= u.get_role %></td>
-                <td><%= link_to("Edit User", edit_user_path(u) , :target => "_blank" ) %></td>
+              
                 <td><%= u.purchased.nil? ? "Not Purchased Yet" : "Purchased" %></td>
                 <td><%= u.created_at.strftime("%m/%d/%Y")  %></td>
+                 <td><%= link_to("Edit User", edit_user_path(u) , :class => "small round button") %></td>
              </tr>
             <% end %>
         </tbody>
@@ -89,7 +87,7 @@
         <td><%= site["specialty"] %></td>
         <td><%= checkout %></td>
         <td><%= site["site_standing"] == '' ? 'Editor' : site["site_standing"].capitalize %></td>
-        <td> <a href="/sites/show/<%=site["id"] %>" class="btn button"> View </a></td>
+        <td> <a href="/sites/show/<%=site["id"] %>" class="small round button"> View </a></td>
       </tr> 
     
      <% end %>
@@ -117,13 +115,11 @@
           </tr>
 
       <% @invoices.reverse.each do |i| %>
-
        <% if i["invoice_status"] == 1
           status = "Paid"
         else
           status = "Unpaid"
-        end %>
-
+      end %>
       <tr>
         <td><%= i["id"] %></td>
         <td><%= i["site_id"] %></td>
@@ -132,8 +128,10 @@
         <td><%= status %></td>
         <td><%= link_to("View Details", invoice_path(
         :invoice_id => i["id"], 
-        :reseller_id => @reseller.id
-        )) %></td>
+        :reseller_id => @reseller.id, 
+        
+        
+        ), :class => "button small round") %></td>
       </tr> 
       <% end %>
     </table>
