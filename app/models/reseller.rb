@@ -3,7 +3,7 @@ class Reseller < ActiveRecord::Base
 	attr_accessible :name, :appDomain, :marketing_type,
 					:bundleurl, :bundlename ,:wl_folder,
 					:logo_url, :website,:address,:entity_type,
-					:logo,:theme, :checkout_type, :bundle_type
+					:logo,:theme, :checkout_type, :bundle_type, :id, :installed, :product_name, :"1800number"
 	self.table_name = "reseller"
     has_many :users
 
