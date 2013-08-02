@@ -14,6 +14,7 @@
       <th width="150">Expires</th>
       <th width="150">Status</th>
       <th width="150">Edit</th>
+      <th width="150">Delete</th>
     </tr>
   </thead>
    <tbody>
@@ -26,6 +27,7 @@
       <td><%=r.end_date %></td>
       <td><%=r.status.to_s.capitalize %></td>
       <td><%= link_to "Edit", edit_coupon_path(r),  :class => "button small round" %></td>
+      <td> <a href="deleteCoupon/<%=r.id %>" class="small button round"> Delete </a> </td>
 		 </tr>
 		<% end %>
 	</tbody>

@@ -9,8 +9,11 @@
 <div class="row large-12">
 	<h6>Update Coupon Details</h6>
 
-	<%= form_for(@coupon, :method => "post", :url => {:action => "update", :controller => "coupons"}) do |f| %>
+	<%= form_for(@coupon, :method => "post", :url => {:action => "updateCoupon", :controller => "coupons"}) do |f| %>
 
+		<p>
+			<%=f.hidden_field :id%>
+		</p>
 
 		<div class="row">
 		  <div class="small-3 large-6 columns">
@@ -23,17 +26,42 @@
 		  </div>
 		</div>
 
-
 		<div class="row">
 		  <div class="small-3 large-6 columns">
-		  	<%=f.label :description%>
-			<%=f.text_field :description%>
+			<%=f.label "Coupon Discount"%>
+			<%=f.text_field :discount%>
 		  </div>
 		  <div class="small-4 large-6 columns">
-		  	<%=f.label "Start Date"%>
-			<%=f.text_field :start_date%>
+			<%=f.label "Description"%>
+			<%=f.text_field :description%>
 		  </div>
 		</div>
+
+		<div class="row">
+	
+		  <div class="small-4 large-6 columns">
+			<%=f.label "Start Date"%>
+			<%=f.text_field :start_date, :class => "date" %>
+		  </div>
+
+
+		  <div class="small-3 large-6 columns">
+			<%=f.label "End Date"%>
+			<%=f.text_field :end_date%>
+		  </div>
+		  
+		  
+		</div>
+
+		<div class="row">
+
+			 <div class="small-3 large-12 columns">
+			<%=f.label "Description"%>
+			<%=f.text_field :description%>
+		  </div>
+
+		</div>
+	
 
 	
 		<p>

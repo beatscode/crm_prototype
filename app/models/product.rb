@@ -5,5 +5,6 @@ class Product < ActiveRecord::Base
   self.primary_key = 'id'
 
   PRODUCT_TYPES = ["service", "product","addon"]
+  RECCURING = ["yes", "no"]
 
 end

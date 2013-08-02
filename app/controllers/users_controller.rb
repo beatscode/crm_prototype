@@ -4,12 +4,12 @@ class UsersController < ApplicationController
 
   def update
   	@user = User.find(params[:user][:id])
-	@user.login = params[:user][:login]
-	@user.save
+	  @user.login = params[:user][:login]
+	  @user.save
 
-	redirect = '/users/' + params[:user][:id] 
-	 respond_to do |format|
-       format.html { redirect_to(redirect) }
+	  redirect = '/users/' + params[:user][:id] 
+	  respond_to do |format|
+    format.html { redirect_to(redirect) }
 	end
 
   end

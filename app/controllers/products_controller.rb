@@ -34,6 +34,15 @@ class ProductsController < ApplicationController
 		@product.name = params[:product][:name]
         @product.price = params[:product][:price]
         @product.product_type = params[:product][:product_type]
+
+        if (params[:product][:recurring] == "yes" || params[:product][:recurring] === "yes")
+        	recurring = 1
+        else
+        	recurring = 0
+        end
+
+        @product.recurring = recurring
+        @product.recurring_amount = params[:product][:recurring_amount]
 		@product.save
 
 	 	 respond_to do |format|

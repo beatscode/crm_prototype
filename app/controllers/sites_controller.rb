@@ -17,8 +17,6 @@ class SitesController < ApplicationController
         @staff = Staff.where(:site_id => params[:id])
         @doctors = Physician.where(:site_id => params[:id])
 
-        
-
         respond_to do |format|
             format.html # show.html.erb
         end

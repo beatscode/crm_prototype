@@ -8,6 +8,8 @@ Leoadmin::Application.routes.draw do
 
   match 'sites/show/(:id)' => 'sites#show'
   match 'updateProduct' => 'products#updateProduct'
+  match 'updateCoupon' => 'coupons#updateCoupon'
+  match 'deleteCoupon/(:id)' => 'coupons#delete'
 
   resources :products
   resources :resellers
