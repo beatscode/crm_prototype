@@ -54,16 +54,16 @@ production:
   adapter: mysql2
   encoding: utf8
   database: leonardo_prod
-  username: dbmkr
-  password: mkr$2009
-  host: leodev.mednet-tech.com
+  username: db_leoprod
+  password: 4DMXexDaw8s
+  host: 10.10.188.66
   port: 3306
 
 templates_production:
   adapter: mysql2
   database: leonardoTemplateBuilder
-  username: dbmkr
-  password: mkr$2009
+  username: db_leo_usr
+  password: russ1@n_whale
   timeout: 5000
-  host: leodev.mednet-tech.com
+  host: 10.10.188.66
   port: 3306
