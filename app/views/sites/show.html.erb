@@ -1,5 +1,5 @@
 <div class="row panel">
-    
+   
 
 		<h6> Details </h6>
 		<p>
@@ -11,6 +11,65 @@
 		Updated On : <%= @site.updated_at.strftime("%m/%d/%Y") %> <br/>
 		</div>	
 
+<br/>
+
+<div class="row panel">
+	<h6> Domain </h6>
+	<% @domain.each do | d | %>
+		<%= (@d.domain_name.nil? ? "No domain set" : @d.domain_name) %>
+	<% end %>
+</div>
+
+<br/>
+
+<div class="row panel">
+	<h6> Addon Products </h6>
+
+	<table style="width:99%">
+		  <thead>
+		  <tr>
+		  	<th> Name </th>
+		   <th> Description </th>
+		   <th> Total </th>
+		   <th> Price</th>
+		   <th> Activated</th>
+		  </tr>
+		</thead>
+		<% @products.each do | p | %>
+		 <tr>
+		  <td><%= p.id%> </td>
+		  <td><%= p.name%> </td>
+		  <td><%= p.description%> </td>
+		  <td>$<%= p.price%> </td>
+		  <td><%= p.status%> </td>
+		 </tr>	
+		<% end %>
+	</table>	
+</div>
+
+<br/>
+
+<div class="row panel">
+		<h6> Invoices (<%=@invoices.size %>) </h6>
+		<table style="width:99%">
+		  <thead>
+		  <tr>
+		   <th> Description </th>
+		   <th> Total </th>
+		   <th> Created on </th>
+		  </tr>
+		</thead>
+
+		<% @invoices.each do | d | %>
+		  <tr>
+		  <td><%= d.invoice_note%> </td>
+		  <td>$<%= d.total%> </td>
+		  <td><%= d.created_at%> </td>
+		  </tr>
+		<% end %>
+		</table>
+	
+</div>
 <br/>
 <div class="row panel">
 		<h6> Page Count  (<%= @pages.size %>) </h6>
@@ -64,26 +123,6 @@
 
 </div>
 <br/>
-<div class="row panel">
-		<h6> Invoices (<%=@invoices.size %>) </h6>
-		<table style="width:99%">
-		  <thead>
-		  <tr>
-		   <th> Description </th>
-		   <th> Total </th>
-		   <th> Created on </th>
-		  </tr>
-		</thead>
 
-		<% @invoices.each do | d | %>
-		  <tr>
-		  <td><%= d.invoice_note%> </td>
-		  <td>$<%= d.total%> </td>
-		  <td><%= d.created_at%> </td>
-		  </tr>
-		<% end %>
-		</table>
-	
-</div>
 
 
