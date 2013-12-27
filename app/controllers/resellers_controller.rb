@@ -71,7 +71,13 @@ class ResellersController < ApplicationController
 		ON users.reseller_id = reseller.id
 		WHERE reseller.id = #{params[:id]}" )
 
-		
+		@user_logins = ActiveRecord::Base.connection.select_all("
+		SELECT *, user_audit.created_at as last_login, users.created_at as created_at 
+		FROM users
+		INNER JOIN  user_audit
+		ON users.id = user_audit.user_id
+		WHERE reseller_id = #{params[:id]}
+		ORDER BY last_login DESC" )
 
 		respond_to do |format|
 			format.html # show.html.erb

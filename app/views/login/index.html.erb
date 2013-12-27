@@ -1,0 +1,19 @@
+<div class="row  large-12">
+	<h2> Login </h2>
+</div>
+<br/>
+
+<div class="row large-12">
+
+ <%= form_for(:complete, :method => "post", :url => {:action => "complete"}) do |f| %>
+  <p>
+    <%= label_tag :email %><br />
+    <%= text_field_tag :email, params[:email] %>
+  </p>
+  <p>
+    <%= label_tag :password %><br />
+    <%= password_field_tag :password %>
+  </p>
+  <p><%= submit_tag "Log in" , :class => 'button btn'%></p>
+<% end %>
+</div>
