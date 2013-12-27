@@ -5,11 +5,13 @@ Leoadmin::Application.routes.draw do
   get "users/show"
   get "users/create"
   get "invoices/show"
+  get "login/index"
 
   match 'sites/show/(:id)' => 'sites#show'
   match 'updateProduct' => 'products#updateProduct'
   match 'updateCoupon' => 'coupons#updateCoupon'
   match 'deleteCoupon/(:id)' => 'coupons#delete'
+  match 'login' => 'login#index'
 
   resources :products
   resources :resellers

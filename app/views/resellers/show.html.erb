@@ -46,7 +46,7 @@
                 <td><%= u.get_role %></td>
               
                 <td><%= u.purchased.nil? ? "Not Purchased Yet" : "Purchased" %></td>
-                <td><%= u.created_at.strftime("%m/%d/%Y")  %></td>
+                <td><%= u.created_at.nil? ? "" : u.created_at.strftime("%m/%d/%Y") %></td>
                  <td><%= link_to("Edit User", edit_user_path(u) , :class => "small round button") %></td>
              </tr>
             <% end %>
