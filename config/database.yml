@@ -38,17 +38,24 @@ templates:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  adapter: sqlite3
-  database: db/test.sqlite3
-  pool: 5
-  timeout: 5000
 
-# production:
-#   adapter: sqlite3
-#   database: db/production.sqlite3
-#   pool: 5
-#   timeout: 5000
+test:
+  adapter: mysql2
+  database: leonardoTest
+  username: root
+  password: root
+  pool: 5
+  host: localhost
+  post: 3306
+
+templates_test:
+  adapter: mysql2
+  database: leonardoTemplateBuilderTest
+  username: root
+  password: root
+  timeout: 5000
+  host: localhost
+  port: 3306
 
 production:
   adapter: mysql2
