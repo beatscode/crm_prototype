@@ -1,5 +1,7 @@
 class ResellersController < ApplicationController
 
+	before_filter :authenticate_user 
+	
 	def index
 		@resellers = Reseller.all
 		@sites = Site.all
@@ -47,8 +49,7 @@ class ResellersController < ApplicationController
 		@reseller = Reseller.find(params[:id])
 		@usercount= @reseller.users.count
 		@users    = @reseller.users
-		@invoices =  Invoice.includes(:invoicedetail).where("invoices.id  = invoice_details.invoice_id").all
-		
+	
 		@invoices = ActiveRecord::Base.connection.select_all( "
 		SELECT invoices.* 
 		FROM users
@@ -58,7 +59,8 @@ class ResellersController < ApplicationController
 		on user_sites.site_id = invoices.site_id
 		INNER JOIN reseller
 		ON users.reseller_id = reseller.id
-		WHERE reseller.id = #{params[:id]}" )
+		WHERE reseller.id = #{params[:id]}
+		ORDER BY invoices.id DESC" )
 
 		@sites = ActiveRecord::Base.connection.select_all( "
 		SELECT sites.* 
@@ -69,7 +71,8 @@ class ResellersController < ApplicationController
 		on user_sites.user_id = users.id
 		INNER JOIN reseller
 		ON users.reseller_id = reseller.id
-		WHERE reseller.id = #{params[:id]}" )
+		WHERE reseller.id = #{params[:id]}
+		ORDER BY sites.id DESC" )
 
 		@user_logins = ActiveRecord::Base.connection.select_all("
 		SELECT *, user_audit.created_at as last_login, users.created_at as created_at 

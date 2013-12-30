@@ -1,5 +1,6 @@
 class CouponsController < ApplicationController
 
+	before_filter :authenticate_user 
 	def index
 		@coupons = Coupon.all
 	end

@@ -12,7 +12,7 @@ Leoadmin::Application.routes.draw do
   match 'updateProduct' => 'products#updateProduct'
   match 'updateCoupon' => 'coupons#updateCoupon'
   match 'deleteCoupon/(:id)' => 'coupons#delete'
-  match 'login' => 'login#index'
+  match 'login' => 'login#index', :as => :login
   match 'complete' => 'login#complete'
 
 

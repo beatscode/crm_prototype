@@ -16,7 +16,7 @@
 <div class="row panel">
 	<h6> Domain </h6>
 	<% @domain.each do | d | %>
-		<%= (@d.domain_name.nil? ? "No domain set" : @d.domain_name) %>
+		<%= (d.domain_name.nil? ? "No domain set" : d.domain_name) %>
 	<% end %>
 </div>
 
@@ -32,7 +32,7 @@
 		   <th> Description </th>
 		   <th> Total </th>
 		   <th> Price</th>
-		   <th> Activated</th>
+		   <th> Active</th>
 		  </tr>
 		</thead>
 		<% @products.each do | p | %>
