@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  
+    attr_accessible :reseller_id, :role_id, :login, :password, :cookie_hash, :purchased, :confirmed, :confirmation_code, :primary
     belongs_to :reseller
     belongs_to :company
     has_and_belongs_to_many :sites, :join_table => 'user_sites'

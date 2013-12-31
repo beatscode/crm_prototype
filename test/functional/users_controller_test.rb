@@ -8,16 +8,14 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    skip "need to rewrite"
     session[:username] = "admin"
-    get :edit
+    get(:edit, {'id' => 1 })
     assert_response :success
   end
 
   test "should get show" do
-    skip "need to rewrite"
     session[:username] = "admin"
-    get(:show, {'id' => "12"})
+    get(:show, {'id' => 1})
     assert_response :success
   end
 
@@ -25,6 +23,14 @@ class UsersControllerTest < ActionController::TestCase
     session[:username] = "admin"
     get :create
     assert_response :success
+  end
+  
+  test "should update user" do
+    session[:username] = "admin"
+    post :update, { :user =>
+                        {:login => 'testuser@mednet-tech.com', :id => 1 }
+                    }
+    assert_response :redirect
   end
 
 end

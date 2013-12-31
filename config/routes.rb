@@ -6,11 +6,13 @@ Leoadmin::Application.routes.draw do
   get "users/create/"
   get "invoices/show"
   get "login/index"
+  post "users/update"
 
   match 'sites/show/(:id)' => 'sites#show'
   match 'users/show/(:id)' => 'users#show', :as => :user_show
   match 'updateProduct' => 'products#updateProduct'
   match 'updateCoupon' => 'coupons#updateCoupon'
+  
   match 'deleteCoupon/(:id)' => 'coupons#delete'
   match 'login' => 'login#index', :as => :login
   match 'complete' => 'login#complete'

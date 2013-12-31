@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
   # attr_accessible :title, :body
-  attr_accessible :id,:name, :price, :product_type, :code, :description, :price, :tax, :isActive, :recurring, :recurring_amount
+  attr_accessible :id,:name, :price, :product_type, :code, :description, :price, :tax, :isActive, :recurring, :recurring_amount, :adminActive, :recurring_type, :recurring_cycle
   self.table_name =  'products'
   self.primary_key = 'id'
 

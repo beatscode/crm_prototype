@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class ResellersControllerTest < ActionController::TestCase
+   
    test "should get index" do
    	session[:username] = "admin"
     get :index
@@ -15,31 +16,30 @@ class ResellersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get create" do
- 	skip "Need to pass parameters"
-    session[:username] = "admin"
-    get :create
-    assert_response :success
-  end
-
   test "should get edit" do
- 	skip "Need to pass parameters"
     session[:username] = "admin"
-    get :edit
+    get(:edit, {'id' => 8})
     assert_response :success
   end
-
-  test "should get update" do
- 	skip "Need to pass parameters"
+  
+  test "should get create" do
     session[:username] = "admin"
-    get :update
-    assert_response :success
+    
+    post :create, { :reseller =>
+                        {:name => 'test', :marketing_type => '' }
+                      }
+    assert_response :redirect
   end
-
+  
   test "should get show" do
- 	skip "Need to pass parameters"
     session[:username] = "admin"
-    get :show
+    get :show, { :id =>  8}
+    assert_not_nil assigns(:reseller)
+    assert_not_nil assigns(:users)
+    assert_not_nil assigns(:usercount)
+    assert_not_nil assigns(:sites)  
+    assert_not_nil assigns(:invoices) 
+    assert_not_nil assigns(:user_logins) 
     assert_response :success
   end
 

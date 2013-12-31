@@ -1,0 +1,20 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+
+Reseller:
+  id : 8
+  name: Dr. Leonardo
+  appDomain: localhost
+  installed: 0
+  marketing_type: leonardo
+  bundleurl: http://localhost/mednet/leonardo2/public/bundles/leonardo
+  bundlename: leonardo
+  wl_folder: http://localhost/mednet/leonardo2/public/bundles/leonardo/l_images/leonardo/
+  product_name : Dr. Leonardo
+  logo_url: ''
+  website : ''
+  address : ''

@@ -1,6 +1,6 @@
 class Invoice < ActiveRecord::Base
   # attr_accessible :title, :body
-  attr_accessible :user_id, :total,:site_id, :product_id, :invoice_status, :invoice_type, :invoice_note
+  attr_accessible :user_id, :total,:site_id, :product_id, :invoice_status, :invoice_type, :invoice_note, :paid_date, :due_date, :discount_applied, :discount_coupon_id, :discount_amount, :price_before_discount
   self.table_name = 'invoices'
   self.primary_key = 'id'
 
