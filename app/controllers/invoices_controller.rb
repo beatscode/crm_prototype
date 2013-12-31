@@ -13,7 +13,6 @@ class InvoicesController < ApplicationController
     @invoice_id = params[:invoice_id]
     @reseller = Reseller.find(params[:reseller_id])
     @details = Invoicedetail.where("invoice_id = ?",params[:invoice_id])
-  
   end
 
   def create

@@ -18,3 +18,17 @@ Reseller:
   logo_url: ''
   website : ''
   address : ''
+
+Reseller_2:
+  id : 1
+  name: Dr. Leonardo 2
+  appDomain: localhost
+  installed: 0
+  marketing_type: leonardo
+  bundleurl: http://localhost/mednet/leonardo2/public/bundles/leonardo
+  bundlename: leonardo
+  wl_folder: http://localhost/mednet/leonardo2/public/bundles/leonardo/l_images/leonardo/
+  product_name : Dr. Leonardo
+  logo_url: ''
+  website : ''
+  address : ''
