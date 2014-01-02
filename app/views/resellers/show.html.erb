@@ -116,7 +116,7 @@
         <td><%= site["specialty"] %></td>
         <td><%= checkout %></td>
         <td><%= site["site_standing"] == '' ? 'Editor' : site["site_standing"].capitalize %></td>
-        <td> <a href="/sites/show/<%=site["id"] %>" class="small round button"> View </a></td>
+        <td> <a href="/sites/show/<%=site["id"] %>" class="small round button"> View Site</a></td>
       </tr> 
     
      <% end %>
@@ -155,7 +155,7 @@
         <td><%= i["invoice_note"] %></td>
         <td><%= i["total"] %></td>
         <td><%= status %></td>
-        <td><%= link_to("View Details", invoice_path(
+        <td><%= link_to("View Invoice", invoice_path(
         :invoice_id => i["id"], 
         :reseller_id => @reseller.id, 
         

@@ -27,7 +27,8 @@
       <td><%=r.end_date %></td>
       <td><%=r.status.to_s.capitalize %></td>
       <td><%= link_to "Edit", edit_coupon_path(r),  :class => "button small round" %></td>
-      <td> <a href="deleteCoupon/<%=r.id %>" class="small button round"> Delete </a> </td>
+      <td><%= link_to "Delete", delete_coupon_path(r),  :class => "button small round" %></td>
+
 		 </tr>
 		<% end %>
 	</tbody>

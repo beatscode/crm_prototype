@@ -13,14 +13,13 @@ Leoadmin::Application.routes.draw do
   match 'updateProduct' => 'products#updateProduct'
   match 'updateCoupon' => 'coupons#updateCoupon'
   
-  match 'deleteCoupon/(:id)' => 'coupons#delete'
+  match 'delete/(:id)' => 'coupons#delete', :as => :delete_coupon
   match 'login' => 'login#index', :as => :login
   match 'complete' => 'login#complete'
 
-
   resources :products
   resources :resellers
-  resources :coupons
+  resources :coupons, controller: 'coupons'
   resources :users
   resources :invoices
   resources :sites

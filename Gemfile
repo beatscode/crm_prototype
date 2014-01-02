@@ -14,6 +14,15 @@ group :production do
 	gem 'execjs'
 end
 
+group :test do
+  gem "capybara"
+  gem "launchy"
+  gem "selenium-client"
+  gem "selenium-webdriver"
+  gem "webrat"
+  gem 'capybara-screenshot'
+  gem "rack_session_access"
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
