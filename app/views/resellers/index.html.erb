@@ -4,15 +4,15 @@
 <br/>
 
 <div class="row large-12">
-<table width="800" class="large-12">
+<table class="responsive large-12">
   <thead>
     <tr>
-      <th width="200">Reseller Logo</th>
-      <th width="200">Reseller Name</th>
+      <th>Reseller Logo</th>
+      <th>Reseller Name</th>
       <th>Website</th>
-      <th width="150">Marketing Type</th>
-      <th width="150">Checkout Type</th>
-      <th width="150">Details</th>
+      <th >Marketing Type</th>
+      <th >Checkout Type</th>
+      <th >Details</th>
     </tr>
   </thead>
    <tbody>
@@ -21,9 +21,9 @@
 		 	<td><%= 
 
 		 		if r.logo_url === "nill" || r.logo_url === "#" || r.logo_url.to_s.length < 2
-		 			image_tag("http://www.ecreativeim.com/blog/wp-content/uploads/2011/05/image-not-found.jpg") 
+		 			image_tag("http://www.ecreativeim.com/blog/wp-content/uploads/2011/05/image-not-found.jpg", :width => "100", :height => "100") 
 		 		else
-		 			image_tag(r.logo_url) 
+		 			image_tag(r.logo_url, :width => "100", :height => "100") 
 		 		end
 
 		 	%></td>
@@ -31,7 +31,7 @@
 			<td><%=link_to "Website", r.website , :target => "_blank" %></td>
 			<td><%=r.marketing_type%></td>
 			<td><%=r.checkout_type%></td>
-			<td><%= link_to "View", r,  :class => "button small round" %></td>
+			<td><%= link_to "View", r,  :class => "button tiny round" %></td>
 		 </tr>
 		<% end %>
 	</tbody>

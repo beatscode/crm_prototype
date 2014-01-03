@@ -1,9 +1,10 @@
 
-<div class="row panel">
+<div class="columns panel">
     <ul class="breadcrumbs">
-  <li><%= link_to "Resellers", resellers_path %></li>
-  <li class="unavailable"><a href="#"><%=@reseller.name %></a></li>
-</ul>
+      <li><%= link_to "Resellers", resellers_path %></li>
+      <li class="unavailable"><a href="#"><%=@reseller.name %></a></li>
+    </ul>
+
     <div class="small-2 large-5 columns">
      <h4>#<%= @reseller.id%> <%= @reseller.name %></h4><br>
         <%= link_to "Edit Reseller", edit_reseller_path( @reseller ) %> | <%= link_to_unless(@reseller.website.nil?, "Website", @reseller.website ) %>
@@ -23,13 +24,15 @@
     </div>
   </div>
 </div>
+
+
 <br><br>
 <div class="section-container auto" data-section>
 
   <section>
     <p class="title" data-section-title><a href="#panel2">Users (<%=  @users.count%>)</a></p>
     <div class="content" data-section-content>
-    <table width="99%">
+    <table width="99%" class="responsive">
       <thead>
         <tr>
           <th width="200">User Login</th>
@@ -48,8 +51,8 @@
               
                 <td><%= u.purchased.nil? ? "Not Purchased Yet" : "Purchased" %></td>
                 <td><%= u.created_at.nil? ? "" : u.created_at.strftime("%m/%d/%Y") %></td>
-                  <td><%= link_to("View Details", user_show_path(u) , :class => "small round button") %></td>
-                 <td><%= link_to("Edit User", edit_user_path(u) , :class => "small round button") %></td>
+                  <td><%= link_to("View Details", user_show_path(u) , :class => "tiny round button") %></td>
+                 <td><%= link_to("Edit User", edit_user_path(u) , :class => "tiny round button") %></td>
              </tr>
             <% end %>
         </tbody>
@@ -116,7 +119,7 @@
         <td><%= site["specialty"] %></td>
         <td><%= checkout %></td>
         <td><%= site["site_standing"] == '' ? 'Editor' : site["site_standing"].capitalize %></td>
-        <td> <a href="/sites/show/<%=site["id"] %>" class="small round button"> View Site</a></td>
+        <td> <a href="/sites/show/<%=site["id"] %>" class="tiny round button"> View Site</a></td>
       </tr> 
     
      <% end %>
