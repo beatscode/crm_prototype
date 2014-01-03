@@ -1,13 +1,12 @@
-<div class="row panel large-12">
+<div class="row panel large-12 small-12 columns">
 	<h6>Editing Reseller <%= @reseller.name %></h6>
 </div>
 <br/>
 
-<div class="row large-12">
+<div class="row large-12 small-12 columns">
 	<%= simple_form_for(@reseller, :url => {:action => 'update'}) do |f| %>
 
 		<%=f.hidden_field :id %>
-
 
 	<%= f.hidden_field :installed, :value => "0" %>
 	<%= f.hidden_field :marketing_type, :value => "whitelabel" %>
@@ -15,23 +14,23 @@
 	<%= f.hidden_field :theme, :value => "" %>
 	<%= f.hidden_field :bundle_type, :value => "traditional" %>
 
-	<div class="row">
-	  <div class="small-3 large-6 columns">
+	<div class="row small-12">
+	  <div class="small-12 large-6 columns">
 	  	<%=f.label :name%>
 		<%=f.text_field :name%>
 	  </div>
-	  <div class="small-4 large-6 columns">
+	  <div class="small-12 large-6 columns">
 	  	<%=f.label "Application Domain"%>
 		<%=f.text_field :appDomain%>
 	  </div>
 	</div>
 
-	<div class="row">
-	  <div class="small-3 large-6 columns">
+	<div class="row small-12">
+	  <div class="small-12 large-6 columns">
 		<%=f.label "Bundle Url"%>
 		<%=f.text_field :bundleurl%>
 	  </div>
-	  <div class="small-4 large-6 columns">
+	  <div class="small-12 large-6 columns">
 		<%=f.label "Bundle Name"%>
 		<%=f.text_field :bundlename%>
 	  </div>
@@ -39,11 +38,11 @@
 
 
 	<div class="row">
-	  <div class="small-3 large-6 columns">
+	  <div class="small-12 large-6 columns">
 		<%=f.label "White Label Folder"%>
 		<%=f.text_field :wl_folder%>
 	  </div>
-	  <div class="small-4 large-6 columns">
+	  <div class="small-12 large-6 columns">
 		<%=f.label "Product Name"%>
 		<%=f.text_field :product_name%>
 	  </div>
@@ -51,12 +50,12 @@
 
 
 	<div class="row">
-	  <div class="small-3 large-6 columns">
+	  <div class="small-12 large-6 columns">
 		
 		<%=f.label :Domain%>
 		<%=f.text_field :website%>
 	  </div>
-	  <div class="small-4 large-6 columns">
+	  <div class="small-12 large-6 columns">
 		
 		<%=f.label "Address " %>
 		<%=f.text_field :address%>
@@ -64,11 +63,11 @@
 	</div>
 
 	<div class="row">
-	  <div class="small-3 large-6 columns">
+	  <div class="small-12 large-6 columns">
 		<%=f.label "Entity Type" %>
 		<%=f.text_field :entity_type %>
 	  </div>
-	  <div class="small-4 large-6 columns">
+	  <div class="small-12 large-6 columns">
 		<%=f.label "Checkout Type" %>
 		<%=f.text_field :checkout_type %>
 	  </div>

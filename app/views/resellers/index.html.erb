@@ -7,12 +7,12 @@
 <table class="responsive large-12">
   <thead>
     <tr>
-      <th>Reseller Logo</th>
-      <th>Reseller Name</th>
-      <th>Website</th>
-      <th >Marketing Type</th>
-      <th >Checkout Type</th>
-      <th >Details</th>
+      <th >Logo</th>
+      <th> Name</th>
+      <th> Website</th>
+      <th> Marketing Type</th>
+      <th> Checkout Type</th>
+      <th> Details</th>
     </tr>
   </thead>
    <tbody>
@@ -21,9 +21,9 @@
 		 	<td><%= 
 
 		 		if r.logo_url === "nill" || r.logo_url === "#" || r.logo_url.to_s.length < 2
-		 			image_tag("http://www.ecreativeim.com/blog/wp-content/uploads/2011/05/image-not-found.jpg", :width => "100", :height => "100") 
+		 			image_tag("http://www.ecreativeim.com/blog/wp-content/uploads/2011/05/image-not-found.jpg", :width => "100", :height => "100", :class => "small-9 large-4") 
 		 		else
-		 			image_tag(r.logo_url, :width => "100", :height => "100") 
+		 			image_tag(r.logo_url, :width => "100", :height => "100", :class => "small-9 large-4") 
 		 		end
 
 		 	%></td>
