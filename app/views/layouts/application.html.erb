@@ -8,17 +8,6 @@
   <%= stylesheet_link_tag "stylesheets/responsive-tables.css", :media => "all" %>
   <%= stylesheet_link_tag "stylesheets/normalize.css", :media => "all" %>
 
-
-  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-  <%= javascript_include_tag "javascripts/foundation.min.js", :media => "all" %>
-  <%= javascript_include_tag "javascripts/foundation/foundation.dropdown.js", :media => "all" %>
-  <%= javascript_include_tag "javascripts/foundation/foundation.topbar.js", :media => "all" %>
-  <%= javascript_include_tag "javascripts/foundation/responsive-table.js", :media => "all" %>
-  <%= javascript_include_tag "javascripts/foundation/foundation.tooltip.js", :media => "all" %>
-  <%= javascript_include_tag "javascripts/foundation/foundation.tab.js", :media => "all" %>
-
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -115,12 +104,21 @@
 
   <!-- End Footer -->
 
-  <script>
-    $(document).foundation();
-     jQuery(document).foundation();
-  </script>
-  <script>
-      $(document).foundation().foundation('joyride', 'start');
-    </script>
+
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+  <%= javascript_include_tag "javascripts/foundation.min.js", :media => "all" %>
+  <%= javascript_include_tag "javascripts/foundation/foundation.dropdown.js", :media => "all" %>
+  <%= javascript_include_tag "javascripts/foundation/foundation.topbar.js", :media => "all" %>
+  <%= javascript_include_tag "javascripts/foundation/responsive-table.js", :media => "all" %>
+  <%= javascript_include_tag "javascripts/foundation/foundation.tooltip.js", :media => "all" %>
+  <%= javascript_include_tag "javascripts/foundation/foundation.tab.js", :media => "all" %>
+<script>
+$(function() {
+   $(document).foundation();
+   $(document).foundationTabs();
+});
+</script>
 </body>
 </html>
