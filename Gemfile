@@ -12,6 +12,7 @@ gem 'simple_form'
 group :production do
 	gem 'therubyracer'
 	gem 'execjs'
+  gem 'seed_dump'
 end
 
 group :test do
@@ -37,7 +38,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'seed_dump'
+gem 'addressable', '>= 2.3.5'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
