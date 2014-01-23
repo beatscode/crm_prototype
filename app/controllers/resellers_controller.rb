@@ -75,7 +75,7 @@ class ResellersController < ApplicationController
 		ORDER BY sites.id DESC" )
 
 		@user_logins = ActiveRecord::Base.connection.select_all("
-		SELECT *, user_audit.created_at as last_login, users.created_at as created_at 
+		SELECT *, user_audit.created_at as last_login, users.created_at as created_at, users.id as id 
 		FROM users
 		INNER JOIN  user_audit
 		ON users.id = user_audit.user_id

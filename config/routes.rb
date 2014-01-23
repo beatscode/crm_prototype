@@ -17,6 +17,8 @@ Leoadmin::Application.routes.draw do
   match 'login' => 'login#index', :as => :login
   match 'complete' => 'login#complete'
 
+  match 'reports/weekly' => 'reports#weekly'
+
   resources :products
   resources :resellers
   resources :coupons, controller: 'coupons'
@@ -24,6 +26,7 @@ Leoadmin::Application.routes.draw do
   resources :invoices
   resources :sites
   resources :login
+  resources :reports
 
   root to: 'resellers#index'
 

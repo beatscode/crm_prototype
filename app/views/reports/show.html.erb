@@ -1,0 +1,128 @@
+<div class="column large-12">
+   
+
+<div class="row panel large-12">
+	<h6> Leonardo Reporting <br/><br/><%= @start_date.strftime("%m/%d/%Y") %> to  <%= @end_date.strftime("%m/%d/%Y") %>  </h6>
+	<br/>
+	Total Sites Created : (<%=  @sites.count%>) <br/>
+	Total Users Created : (<%=  @users.count%>) <br/>
+	Total Invoices Created : (<%=  @invoices.count%>) <br/>
+
+</div>
+<br/>
+    
+</div>
+
+
+
+<div class="section columns small-12">
+
+<dl class="tabs large-12" data-tab>
+  <dd class="active small-12 large-3"><a href="#panel2-1">Users (<%=  @users.count%>)</a></dd>
+  <dd class="small-12 large-3"><a href="#panel2-3">Sites (<%=  @sites.count%>)</a></dd>
+  <dd class="small-12 large-3"><a href="#panel2-4">Invoices (<%=  @invoices.count%>)</a></dd>
+</dl>
+
+<div class="tabs-content large-12 small-12">
+
+  <div class="content active large-12 " id="panel2-1">
+    
+   
+    <table class="responsive large-12">
+      <thead>
+        <tr>
+          <th>User Login</th>
+          <th>Role</th>
+          <th>Purchase Status</th>
+          <th>Member Since</th>
+          <th>View</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+       <tbody>
+            <% @users.reverse.each do |u| %>
+             <tr>
+                <td><%= link_to((u.login.nil? ? "No Login" : u.login), u) %></td>
+                <td><%= u.get_role %></td>
+              
+                <td><%= u.purchased.nil? ? "Not Purchased Yet" : "Purchased" %></td>
+                <td><%= u.created_at.nil? ? "" : u.created_at.strftime("%m/%d/%Y") %></td>
+                  <td><%= link_to("View Details", user_show_path(u) , :class => "tiny round button") %></td>
+                 <td><%= link_to("Edit User", edit_user_path(u) , :class => "tiny round button") %></td>
+             </tr>
+            <% end %>
+        </tbody>
+    </table>
+ 
+  </div>
+ 
+  <div class="content large-12" id="panel2-3">
+         <table width="99%" class="responsive">
+          <tr>
+            <thead>
+            <td> Site id </td>
+            <td> Practice Name </td>
+            <td> Specialty </td>
+            <td> Checkout Status </td>
+            <td> Billing Status </td>
+            <td> View Details </td>
+          </thead>
+          </tr>
+
+      <% @sites.each do |site| 
+        if (site["has_purchased"] == 1)
+            checkout = "Has completed checkout"
+        else
+            checkout = "Has not completed checkout"
+        end
+      %>
+      
+      <tr>
+        <td><%= site["id"] %></td>
+        <td><%= site["practice_name"] == nil ? 'N/A' : site["practice_name"] %></td>
+        <td><%= site["specialty"] %></td>
+        <td><%= checkout %></td>
+        <td><%= site["site_standing"] == '' ? 'Editor' : site["site_standing"].capitalize %></td>
+        <td> <a href="/sites/show/<%=site["id"] %>" class="tiny round button"> View Site</a></td>
+      </tr> 
+    
+     <% end %>
+
+    </table>
+  </div>
+  <div class="content large-12" id="panel2-4">
+       <table width="99%" class="responsive">
+          <tr>
+            <thead>
+            <td> Invoice Id </td>
+            <td> Site id </td>
+            <td> Note </td>
+            <td> Total </td>
+            <td> Status </td>
+          </thead>
+          </tr>
+
+      <% @invoices.reverse.each do |i| %>
+       <% if i["invoice_status"] == 1
+          status = "Paid"
+        else
+          status = "Unpaid"
+      end %>
+      <tr>
+        <td><%= i["id"] %></td>
+        <td><%= i["site_id"] %></td>
+        <td><%= i["invoice_note"] %></td>
+        <td><%= i["total"] %></td>
+        <td><%= status %></td>
+       
+     
+      </tr> 
+      <% end %>
+    </table>
+  </div>
+</div>
+
+
+
+
+</div>

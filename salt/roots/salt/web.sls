@@ -9,11 +9,21 @@ mypkgs:
       - installrvm
       - installapache 
 
-# Install Apache
-installapache:
-  cmd.script:
-    - source: salt://web/apache.sh
-    - stateful: false
+#Install Apache
+httpd:
+  pkg:
+    - installed
+  service:
+    - running
+  require:
+    - file: /etc/httpd/conf/httpd.conf
+    - file: /etc/php.ini
+    - file: /etc/httpd/conf.d/welcome.conf
+
+# remove welcome.conf
+/etc/httpd/conf.d/welcome.conf:
+  file.absent:
+    - name: /etc/httpd/conf.d/welcome.conf
 
 # Install RVM
 installrvm:
@@ -35,13 +45,4 @@ installruby:
 #     - source: salt://rails/passenger.sh
 #     - stateful: true
 #   require:
-#     - pkg: installapache      
-
-
-# Start rails
-startrails:
-  cmd.script:
-    - source: salt://rails/startapp.sh
-    - stateful: true
-  require:
-    - pkg: mypkgs          
+#     - pkg: installapache
