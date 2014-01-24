@@ -5,6 +5,12 @@ class User < ActiveRecord::Base
     belongs_to :company
     has_and_belongs_to_many :sites, :join_table => 'user_sites'
 
+     has_many :invoices, :class_name => "Invoice",
+    :foreign_key => "user_id"
+
+    has_many :user_sites, :class_name => "UserSites",
+    :foreign_key => "user_id"
+
     ###
     # Get the role of a specific user
     def get_role

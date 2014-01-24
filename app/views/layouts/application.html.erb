@@ -25,6 +25,18 @@
       <!-- Right Nav Section -->
       <ul class="right">
 
+   <li class="divider"></li>
+        <li class="has-dropdown">
+         <%= link_to "Reporting", resellers_path %>
+          <ul class="dropdown">
+            <li><label>Reports</label></li>
+            <li><%=link_to "Monthly", reports_monthly_path %></li>
+            <li><%= link_to "Weekly", reports_weekly_path %></li>
+            <li><%= link_to "Today", reports_daily_path %></li>
+            <li><%= link_to "By Reseller", reports_resellers_path %></li>
+        
+          </ul>
+        </li>
         <li class="divider"></li>
         <li class="has-dropdown">
          <%= link_to "Resellers", resellers_path %>

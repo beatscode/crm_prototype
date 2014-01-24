@@ -1,0 +1,35 @@
+<div class="row panel large-12 small-12">
+	<h6> Select a reseller to view report </h6>
+</div>
+<br/>
+
+<div class="row">
+	<div class="small-12 large-12">
+<table class="responsive large-12">
+  <thead>
+    <tr>
+      <th >Logo</th>
+      <th> Name</th>
+      <th> Report</th>
+    </tr>
+  </thead>
+   <tbody>
+		<% @resellers.each do |r| %>
+		 <tr>
+		 	<td><%= 
+
+		 		if r.logo_url === "nill" || r.logo_url === "#" || r.logo_url.to_s.length < 2
+		 			image_tag("http://www.ecreativeim.com/blog/wp-content/uploads/2011/05/image-not-found.jpg", :width => "100", :height => "100", :class => "small-9 large-10") 
+		 		else
+		 			image_tag(r.logo_url, :width => "100", :height => "100", :class => "small-9 large-10") 
+		 		end
+
+		 	%></td>
+			<td><%= link_to r.name, r %></td>
+			<td><%= link_to "View Report", reports_reseller_path("monthly",r.id),  :class => "button tiny round" %></td>
+		 </tr>
+		<% end %>
+	</tbody>
+</table>
+</div>
+</div>

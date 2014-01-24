@@ -6,5 +6,8 @@ class Site < ActiveRecord::Base
     has_many :invoice, :class_name => "Invoice",
   	:foreign_key => "site_id"
 
+  	has_many :user_sites, :class_name => "UserSites",
+  	:foreign_key => "site_id"
+
 
 end

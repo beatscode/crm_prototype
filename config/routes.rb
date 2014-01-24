@@ -18,6 +18,10 @@ Leoadmin::Application.routes.draw do
   match 'complete' => 'login#complete'
 
   match 'reports/weekly' => 'reports#weekly'
+  match 'reports/monthly' => 'reports#show'
+  match 'reports/daily' => 'reports#daily'
+  match 'reports/resellers' => 'reports#resellers'
+  match 'reports/reseller/(:filter)/(:id)' => 'reports#reseller', :as => :reports_reseller
 
   resources :products
   resources :resellers
