@@ -2,7 +2,7 @@
    
 
 <div class="row panel large-12">
-	<h6> Leonardo Reporting for all resellers <br/><br/><%= @start_date.strftime("%m/%d/%Y") %> to  <%= @end_date.strftime("%m/%d/%Y") %>  </h6>
+	<h6> Leonardo Reporting for all resellers <br/><br/><%= Date.parse(@start_date).strftime("%m/%d/%Y") %> to  <%= Date.parse(@end_date).strftime("%m/%d/%Y") %>  </h6>
 	<br/>
 	Total Sites Created : (<%=  @sites.count%>) <br/>
 	Total Users Created : (<%=  @users.count%>) <br/>
@@ -11,7 +11,7 @@
   <%= link_to "View Monthly Report", reports_monthly_path,  :class => "button tiny round" %>
   <%= link_to "View Weekly Report", reports_weekly_path,  :class => "button tiny round" %>
   <%= link_to "View Daily Report", reports_daily_path,  :class => "button tiny round" %>
-  <%= link_to "View By Resller", reports_resellers_path,  :class => "button tiny round" %>
+  <%= link_to "View By Reseller", reports_resellers_path,  :class => "button tiny round" %>
 
 
 </div>

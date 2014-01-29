@@ -39,6 +39,7 @@ end
 
 gem 'jquery-rails'
 gem 'addressable', '>= 2.3.5'
+gem 'lazy_high_charts'
 
 
 # To use ActiveModel has_secure_password

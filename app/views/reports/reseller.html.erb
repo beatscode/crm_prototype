@@ -2,7 +2,7 @@
    
 
 <div class="row panel large-12">
-	<h6> Leonardo Reporting For (<%= @reseller.name %> )<br/><br/><%= @start_date.strftime("%m/%d/%Y") %> to  <%= @end_date.strftime("%m/%d/%Y") %>  </h6>
+	<h6> Leonardo Reporting For (<%= @reseller.name %> )<br/><br/><%= Date.parse(@start_date).strftime("%m/%d/%Y") %> to  <%= Date.parse(@end_date).strftime("%m/%d/%Y") %>  </h6>
 	<br/>
 	Total Sites Created : (<%=  @sites.count%>) <br/>
 	Total Users Created : (<%=  @users.count%>) <br/>

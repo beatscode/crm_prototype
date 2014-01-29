@@ -1,20 +1,21 @@
 class Report 
 
 	def monthly(reseller_id)
-		start_date  = Date.today.at_beginning_of_month
-		end_date = Date.today.at_end_of_month	
+		start_date  = Date.today.at_beginning_of_month.to_s + " 00:00:00"
+		end_date = Date.today.at_end_of_month.to_s + " 23:23:59"
+
 		return self.buildReport(start_date,end_date,reseller_id)
 	end
 
 	def weekly(reseller_id)
-		start_date  = Date.today.at_beginning_of_week
-		end_date = Date.today.at_end_of_week
+		start_date  = Date.today.at_beginning_of_week.to_s + " 00:00:00"
+		end_date = Date.today.at_end_of_week.to_s + " 23:23:59"
 		return self.buildReport(start_date,end_date,reseller_id)
 	end
 
 	def daily(reseller_id)
-		start_date  = Date.today
-		end_date = Date.today
+		start_date  = Date.today.to_s + " 00:00:00"
+		end_date = Date.today.to_s + " 23:23:59"
 		return self.buildReport(start_date,end_date,reseller_id)
 	end
 
