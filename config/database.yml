@@ -18,7 +18,7 @@ development:
   adapter: mysql2
   database: leonardo
   username: root
-  password: root
+  password: 
   pool: 5
   timeout: 5000
   host: localhost
@@ -29,7 +29,7 @@ templates_development:
   adapter: mysql2
   database: leonardoTemplateBuilder
   username: root
-  password: root
+  password: 
   pool: 5
   timeout: 5000
   host: localhost
@@ -43,7 +43,7 @@ test:
   adapter: mysql2
   database: leonardoTest
   username: root
-  password: root
+  password: 
   pool: 5
   host: localhost
   post: 3306
@@ -52,7 +52,7 @@ templates_test:
   adapter: mysql2
   database: leonardoTemplateBuilderTest
   username: root
-  password: root
+  password: 
   timeout: 5000
   host: localhost
   port: 3306

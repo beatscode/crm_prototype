@@ -6,6 +6,7 @@ class CouponsController < ApplicationController
 	end
 
 	def new
+		@discount_type = Coupon::DISCOUNT_TYPE
 		@coupon = Coupon.new
 	end
 
@@ -17,7 +18,9 @@ class CouponsController < ApplicationController
 		coupon.description = params[:coupon][:description]
 		coupon.start_date = params[:coupon][:start_date]
 		coupon.end_date = params[:coupon][:end_date]
-		coupon.status = 'active'
+		coupon.status = params[:coupon][:status]
+		coupon.site_type_id = params[:coupon][:site_type_id]
+		coupon.discount_type = params[:coupon][:discount_type]
 		coupon.save
 
 		respond_to do |format|
@@ -51,7 +54,9 @@ class CouponsController < ApplicationController
 		coupon.description = params[:coupon][:description]
 		coupon.start_date = params[:coupon][:start_date]
 		coupon.end_date = params[:coupon][:end_date]
-		coupon.status = 'active'
+		coupon.status = params[:coupon][:status]
+		coupon.site_type_id = params[:coupon][:site_type_id]
+		coupon.discount_type = params[:coupon][:discount_type]
 		coupon.save
 
 		 redirect = '/coupons/'
