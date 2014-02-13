@@ -13,6 +13,7 @@ group :production do
 	gem 'therubyracer'
 	gem 'execjs'
   gem 'seed_dump'
+  gem 'newrelic_rpm'
 end
 
 group :test do
