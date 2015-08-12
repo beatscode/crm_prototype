@@ -16,3 +16,4 @@
 public/.htaccess
 *.DS_Store
 capybara*.html
+config
